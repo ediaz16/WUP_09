@@ -80,6 +80,8 @@ pikeModel = lm (Weight~Length1+Length2+Length3+Height+Width,data=pikeFish)
 summary.lm(pikeModel)
 ```
 
+Best two variables for pike are Length1 and Length3
+
 ### Best Models
 
 ### Best Two regressor model
