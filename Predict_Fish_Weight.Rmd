@@ -74,6 +74,12 @@ summary.lm(perchBest2)
 
 ## Pike
 
+```{r}
+pikeFish = filter(fishAll, Species=='Pike')
+pikeModel = lm (Weight~Length1+Length2+Length3+Height+Width,data=pikeFish)
+summary.lm(pikeModel)
+```
+
 ### Best Models
 
 ### Best Two regressor model
