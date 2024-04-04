@@ -79,17 +79,66 @@ pikeFish = filter(fishAll, Species=='Pike')
 pikeModel = lm (Weight~Length1+Length2+Length3+Height+Width,data=pikeFish)
 summary.lm(pikeModel)
 ```
+```{r}
+
+
+regsubsets.out <-
+    regsubsets(Weight ~ Length1 + Length2 + Length3 + Height + Width,
+               data = pikeFish,
+               nbest = 1,       # 1 best model for each number of predictors
+               nvmax = NULL,    # NULL for no limit on number of variables
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive")
+
+summary.out <- summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
+```
 
 Best two variables for pike are Length1 and Length3
 
 ### Best Models
 
 ### Best Two regressor model
+```{r}
+#best model
+pikeBest2=lm(Weight~Height+Width, data=pikeFish)
+summary.lm(pikeBest2)
+```
 
 ## Roach
+```{r}
+RoachFish = filter(fishAll, Species=='Roach')
+RoachModel = lm (Weight~Length1+Length2+Length3+Height+Width,data=RoachFish)
+summary.lm(RoachModel)
+```
 
 ### Best Models
+```{r}
+
+regsubsets.out <-
+    regsubsets(Weight ~ Length1 + Length2 + Length3 + Height + Width,
+               data = RoachFish,
+               nbest = 1,       # 1 best model for each number of predictors
+               nvmax = NULL,    # NULL for no limit on number of variables
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive")
+
+summary.out <- summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
+```
 
 ### Best Two regressor model
+
+The best  two varibles to predic weight are L3 and Width
+
+```{r}
+#best model
+RoachBest2=lm(Weight~Length3+Width, data=RoachFish)
+summary.lm(RoachBest2)
+```
 
 ## Final Summary Statements
