@@ -53,7 +53,7 @@ subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2
   
 ## Which is best??  
 
-Model #2
+Model #2 is the best 2 models to predict height and weight
 
 ```{r}
 which.max(summary.out$adjr2)
@@ -142,3 +142,5 @@ summary.lm(RoachBest2)
 ```
 
 ## Final Summary Statements
+
+For Perchfish I found Model #2 is the best 2 models to predict height and weight. Best two variables for Pikefish are Length1 and Length3. For Roachfish the best  two variables to predict weight are Length3 and Width.
