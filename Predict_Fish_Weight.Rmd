@@ -133,7 +133,7 @@ subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2
 
 ### Best Two regressor model
 
-The best  two varibles to predic weight are L3 and Width
+The best  two variables to predict weight are Length3 and Width
 
 ```{r}
 #best model
